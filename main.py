@@ -91,17 +91,19 @@ class pmsA003():
         """
         return d
 
+def led_init():
+    pi_led.set_PWM_dutycycle(17, 0)
+    pi_led.set_PWM_dutycycle(22, 0)
+    pi_led.set_PWM_dutycycle(27, 0)
+    pi_led.write(5, 0)
+    pi_led.write(6, 0)
+    pi_led.write(13, 0)
+    pi_led.write(19, 0)
+    pi_led.write(26, 0)
+    pi_led.write(12, 0)
 
 pi_led = pigpio.pi()
-pi_led.set_PWM_dutycycle(17, 0)
-pi_led.set_PWM_dutycycle(22, 0)
-pi_led.set_PWM_dutycycle(27, 0)
-pi_led.write(5, 0)
-pi_led.write(6, 0)
-pi_led.write(13, 0)
-pi_led.write(19, 0)
-pi_led.write(26, 0)
-pi_led.write(12, 0)
+led_init()
 # Clear ws2801 all the pixels to turn them off.
 UV_pixels.clear()
 UV_pixels.show()  # Make sure to call show() after changing any pixels!
@@ -116,99 +118,99 @@ temperature_pixels.show()  # Make sure to call show() after changing any pixels!
 # guarantee the timing of calls to read the sensor).
 # If this happens try again!
 while True:
-    if humidity is not None and temperature is not None:
-        if temperature <= 10:
-            print('<10')
-        elif 10 < temperature <= 20:
-            print('11-20')
-        elif 20 < temperature <= 27:
-            print('21-27')
-        elif 27 < temperature <= 30:
-            print('28-30')
-        else:
-            print('30+')
-        #print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
-    else:
-        print('Failed to get DHT reading')
-
     try:
-        arduino_json_raw = arduino.readline()
-        arduino_json = json.loads(arduino_json_raw)
-        # 4.49292074872709e-05x^2+0.0373750265x-0.3676207898
-        # 4.49292074872709e-05x^2+0.0373750265x-0.3676207898
-        uvIndex = (-1.706043956 * (arduino_json['UV'] ** 2)) + (118.3294205704 * arduino_json['UV']) + 59.3763736264
-        print(uvIndex)
-        print(arduino_json['UV'])
-    except:
-        print('Failed to get arduino reading')
+        if humidity is not None and temperature is not None:
+            print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
+            if temperature <= 10:
+                print('temperature: <10')
+            elif 10 < temperature <= 20:
+                print('temperatere: 11-20')
+            elif 20 < temperature <= 27:
+                print('temperature: 21-27')
+            elif 27 < temperature <= 30:
+                print('temperature: 28-30')
+            else:
+                print('temp: 30+')
+        else:
+            print('Failed to get DHT reading')
 
-    con = pmsA003('/dev/ttyUSB0')
-    d = con.read_data()
-    if d['apm25'] <= 50:
-        #print('0-50')
-        pi_led.set_PWM_dutycycle(17, 0)
-        pi_led.set_PWM_dutycycle(22, 0)
-        pi_led.set_PWM_dutycycle(27, 255)
-        pi_led.write(5, 1)
-        pi_led.write(6, 0)
-        pi_led.write(13, 0)
-        pi_led.write(19, 0)
-        pi_led.write(26, 0)
-        pi_led.write(12, 0)
-    elif 50 < d['apm25'] <= 100:
-        #print('51-100')
-        pi_led.set_PWM_dutycycle(17, 255)
-        pi_led.set_PWM_dutycycle(22, 0)
-        pi_led.set_PWM_dutycycle(27, 128)
-        pi_led.write(5, 1)
-        pi_led.write(6, 1)
-        pi_led.write(13, 0)
-        pi_led.write(19, 0)
-        pi_led.write(26, 0)
-        pi_led.write(12, 0)
-    elif 100 < d['apm25'] <= 150:
-        #print('101-150')
-        pi_led.set_PWM_dutycycle(17, 255)
-        pi_led.set_PWM_dutycycle(22, 0)
-        pi_led.set_PWM_dutycycle(27, 50)
-        pi_led.write(5, 1)
-        pi_led.write(6, 1)
-        pi_led.write(13, 1)
-        pi_led.write(19, 0)
-        pi_led.write(26, 0)
-        pi_led.write(12, 0)
-    elif 150 < d['apm25'] <= 200:
-        #print('151-200')
-        pi_led.set_PWM_dutycycle(17, 255)
-        pi_led.set_PWM_dutycycle(22, 0)
-        pi_led.set_PWM_dutycycle(27, 0)
-        pi_led.write(5, 1)
-        pi_led.write(6, 1)
-        pi_led.write(13, 1)
-        pi_led.write(19, 1)
-        pi_led.write(26, 0)
-        pi_led.write(12, 0)
-    elif 200 < d['apm25'] <= 300:
-        #print('201-300')
-        pi_led.set_PWM_dutycycle(17, 160)
-        pi_led.set_PWM_dutycycle(22, 240)
-        pi_led.set_PWM_dutycycle(27, 32)
-        pi_led.write(5, 1)
-        pi_led.write(6, 1)
-        pi_led.write(13, 1)
-        pi_led.write(19, 1)
-        pi_led.write(26, 1)
-        pi_led.write(12, 0)
-    else:
-        #print('>300')
-        pi_led.set_PWM_dutycycle(17, 139)
-        pi_led.set_PWM_dutycycle(22, 19)
-        pi_led.set_PWM_dutycycle(27, 69)
-        pi_led.write(5, 1)
-        pi_led.write(6, 1)
-        pi_led.write(13, 1)
-        pi_led.write(19, 1)
-        pi_led.write(26, 1)
-        pi_led.write(12, 1)
+        try:
+            arduino_json_raw = arduino.readline()
+            arduino_json = json.loads(arduino_json_raw)
+            # 4.49292074872709e-05x^2+0.0373750265x-0.3676207898
+            # 4.49292074872709e-05x^2+0.0373750265x-0.3676207898
+            #uvIndex = (-1.706043956 * (arduino_json['UV'] ** 2)) + (118.3294205704 * arduino_json['UV']) + 59.3763736264
+            #print(uvIndex)
+            print(arduino_json_raw)
+        except:
+            print('Failed to get arduino reading')
 
-    time.sleep(2)
+        con = pmsA003('/dev/ttyUSB0')
+        d = con.read_data()
+        print('PM2.5: ' + repr(d['apm25']))
+        if d['apm25'] <= 50:
+            pi_led.set_PWM_dutycycle(17, 0)
+            pi_led.set_PWM_dutycycle(22, 0)
+            pi_led.set_PWM_dutycycle(27, 255)
+            pi_led.write(5, 1)
+            pi_led.write(6, 0)
+            pi_led.write(13, 0)
+            pi_led.write(19, 0)
+            pi_led.write(26, 0)
+            pi_led.write(12, 0)
+        elif 50 < d['apm25'] <= 100:
+            pi_led.set_PWM_dutycycle(17, 255)
+            pi_led.set_PWM_dutycycle(22, 0)
+            pi_led.set_PWM_dutycycle(27, 128)
+            pi_led.write(5, 1)
+            pi_led.write(6, 1)
+            pi_led.write(13, 0)
+            pi_led.write(19, 0)
+            pi_led.write(26, 0)
+            pi_led.write(12, 0)
+        elif 100 < d['apm25'] <= 150:
+            pi_led.set_PWM_dutycycle(22, 0)
+            pi_led.set_PWM_dutycycle(27, 50)
+            pi_led.write(5, 1)
+            pi_led.write(6, 1)
+            pi_led.write(13, 1)
+            pi_led.write(19, 0)
+            pi_led.write(26, 0)
+            pi_led.write(12, 0)
+        elif 150 < d['apm25'] <= 200:
+            pi_led.set_PWM_dutycycle(17, 255)
+            pi_led.set_PWM_dutycycle(22, 0)
+            pi_led.set_PWM_dutycycle(27, 0)
+            pi_led.write(5, 1)
+            pi_led.write(6, 1)
+            pi_led.write(13, 1)
+            pi_led.write(19, 1)
+            pi_led.write(26, 0)
+            pi_led.write(12, 0)
+        elif 200 < d['apm25'] <= 300:
+            pi_led.set_PWM_dutycycle(17, 160)
+            pi_led.set_PWM_dutycycle(22, 240)
+            pi_led.set_PWM_dutycycle(27, 32)
+            pi_led.write(5, 1)
+            pi_led.write(6, 1)
+            pi_led.write(13, 1)
+            pi_led.write(19, 1)
+            pi_led.write(26, 1)
+            pi_led.write(12, 0)
+        else:
+            pi_led.set_PWM_dutycycle(17, 139)
+            pi_led.set_PWM_dutycycle(22, 19)
+            pi_led.set_PWM_dutycycle(27, 69)
+            pi_led.write(5, 1)
+            pi_led.write(6, 1)
+            pi_led.write(13, 1)
+            pi_led.write(19, 1)
+            pi_led.write(26, 1)
+            pi_led.write(12, 1)
+
+        time.sleep(2)
+
+    except KeyboardInterrupt:
+        led_init()
+        arduino.close()
+        sys.exit(1)
