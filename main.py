@@ -118,19 +118,162 @@ temperature_pixels.show()  # Make sure to call show() after changing any pixels!
 # guarantee the timing of calls to read the sensor).
 # If this happens try again!
 while True:
+    """
+    # Set the first third of the pixels red.
+    for i in range(PIXEL_COUNT // 3):
+        pixels.set_pixel_rgb(i, 255, 0, 0)  # Set the RGB color (0-255) of pixel i.
+
+    # Set the next third of pixels green.
+    for i in range(PIXEL_COUNT // 3, PIXEL_COUNT // 3 * 2):
+        pixels.set_pixel_rgb(i, 0, 255, 0)
+
+    # Set the last third of pixels blue.
+    for i in range(PIXEL_COUNT // 3 * 2, PIXEL_COUNT):
+        pixels.set_pixel_rgb(i, 0, 0, 255)
+
+    # Now make sure to call show() to update the pixels with the colors set above!
+    pixels.show()
+    
+    # Set the first third of the pixels red.
+for i in range(PIXEL_COUNT//6):
+    UV_pixels.set_pixel_rgb(i, 255, 0, 0)  # Set the RGB color (0-255) of pixel i.
+    temperature_pixels.set_pixel_rgb(i, 255, 0, 0)  # Set the RGB color (0-255) of pixel i.
+
+# Set the next third of pixels green.
+for i in range(PIXEL_COUNT//6, PIXEL_COUNT//6*2):
+    UV_pixels.set_pixel_rgb(i, 0, 255, 0)
+    temperature_pixels.set_pixel_rgb(i, 0, 255, 0)
+
+# Set the last third of pixels blue.
+for i in range(PIXEL_COUNT//6*2, PIXEL_COUNT//6*3):
+    UV_pixels.set_pixel_rgb(i, 0, 0, 255)
+    temperature_pixels.set_pixel_rgb(i, 0, 0, 255)
+
+for i in range(PIXEL_COUNT//6*3, PIXEL_COUNT//6*4):
+    UV_pixels.set_pixel_rgb(i, 0, 255, 0)
+    temperature_pixels.set_pixel_rgb(i, 0, 255, 0)
+
+for i in range(PIXEL_COUNT//6*4, PIXEL_COUNT//6*5):
+    UV_pixels.set_pixel_rgb(i, 255, 0, 0)
+    temperature_pixels.set_pixel_rgb(i, 255, 0, 0)
+
+for i in range(PIXEL_COUNT//6*5, PIXEL_COUNT):
+    UV_pixels.set_pixel_rgb(i, 0, 255, 0)
+    temperature_pixels.set_pixel_rgb(i, 0, 255, 0)
+# Now make sure to call show() to update the pixels with the colors set above!
+UV_pixels.show()
+temperature_pixels.show()
+
+    """
+
     try:
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
             if temperature <= 10:
                 print('temperature: <10')
+                for i in range(PIXEL_COUNT // 6):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 255)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                temperature_pixels.show()
             elif 10 < temperature <= 20:
                 print('temperatere: 11-20')
+                for i in range(PIXEL_COUNT // 6):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 255)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    temperature_pixels.set_pixel_rgb(i, 0, 255, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                temperature_pixels.show()
             elif 20 < temperature <= 27:
                 print('temperature: 21-27')
+                for i in range(PIXEL_COUNT // 6):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 255)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    temperature_pixels.set_pixel_rgb(i, 0, 255, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    temperature_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                temperature_pixels.show()
             elif 27 < temperature <= 30:
                 print('temperature: 28-30')
+                for i in range(PIXEL_COUNT // 6):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 255)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    temperature_pixels.set_pixel_rgb(i, 0, 255, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    temperature_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    temperature_pixels.set_pixel_rgb(i, 255, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                temperature_pixels.show()
             else:
                 print('temp: 30+')
+                for i in range(PIXEL_COUNT // 6):
+                    temperature_pixels.set_pixel_rgb(i, 0, 0, 255)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    temperature_pixels.set_pixel_rgb(i, 0, 255, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    temperature_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    temperature_pixels.set_pixel_rgb(i, 255, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    temperature_pixels.set_pixel_rgb(i, 160, 0, 240)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                temperature_pixels.show()
         else:
             print('Failed to get DHT reading')
 
@@ -138,10 +281,12 @@ while True:
             arduino_json_raw = arduino.readline()
             arduino_json = json.loads(arduino_json_raw)
             # 4.49292074872709e-05x^2+0.0373750265x-0.3676207898
-            # 4.49292074872709e-05x^2+0.0373750265x-0.3676207898
             #uvIndex = (-1.706043956 * (arduino_json['UV'] ** 2)) + (118.3294205704 * arduino_json['UV']) + 59.3763736264
             #print(uvIndex)
             print(arduino_json_raw)
+            """
+            
+            """
         except:
             print('Failed to get arduino reading')
 
