@@ -133,6 +133,8 @@ while True:
         try:
             arduino_json_raw = arduino.readline()
             arduino_json = json.loads(arduino_json_raw)
+            print(arduino_json_raw)
+
             uvIndex = ((arduino_json['UV_voltage'] / 5) * 3.3) / 0.1
 
             if uvIndex < 3:
@@ -240,6 +242,8 @@ while True:
                     ehPa = (humidity / 100) * 6.105 * math.exp((17.27 * temperature) / (237.7 + temperature))
                     body_temperature = 1.04 * temperature + 0.2 * ehPa - 0.65 * arduino_json['avg_wind_speed'] - 2.7
 
+                    print('body_temperature: ' + repr(body_temperature))
+                    
                     if body_temperature <= 10:
                         print('body_temperature: <= 10')
                         for i in range(PIXEL_COUNT // 6):
