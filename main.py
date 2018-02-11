@@ -27,7 +27,6 @@ GPIO 21 temperature_CLOCK
 GPIO 20 temperature_DOUT
 """
 
-humidity, temperature = Adafruit_DHT.read_retry(22, 4)
 arduino = serial.Serial('/dev/ttyACM0', 9600)
 
 # Configure the count of pixels:
@@ -101,14 +100,14 @@ def led_init():
     pi_led.write(19, 0)
     pi_led.write(26, 0)
     pi_led.write(12, 0)
+    # Clear ws2801 all the pixels to turn them off.
+    UV_pixels.clear()
+    UV_pixels.show()  # Make sure to call show() after changing any pixels!
+    temperature_pixels.clear()
+    temperature_pixels.show()  # Make sure to call show() after changing any pixels!
 
 pi_led = pigpio.pi()
 led_init()
-# Clear ws2801 all the pixels to turn them off.
-UV_pixels.clear()
-UV_pixels.show()  # Make sure to call show() after changing any pixels!
-temperature_pixels.clear()
-temperature_pixels.show()  # Make sure to call show() after changing any pixels!
 
 # Un-comment the line below to convert the temperature to Fahrenheit.
 # temperature = temperature * 9/5.0 + 32
@@ -167,6 +166,8 @@ temperature_pixels.show()
     """
 
     try:
+        humidity, temperature = Adafruit_DHT.read_retry(22, 4)
+
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
             if temperature <= 10:
