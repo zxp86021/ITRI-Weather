@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 #include <ArduinoJson.h>
-#define WeatherRxD 2
-#define WeatherTxD 3
+#define WeatherRxD 6
+#define WeatherTxD 7
 
 SoftwareSerial WeatherSerial(WeatherRxD,WeatherTxD);
 char                 Weatherbuffer[35];
@@ -128,7 +128,7 @@ void loop()
   float sensorValue;
  
   sensorValue = analogRead(A0);
-  sensorVoltage = sensorValue/1024*3.3;
+  sensorVoltage = sensorValue/1024*5;
   /*
   Serial.print("sensor reading = ");
   Serial.print(sensorValue);
@@ -137,8 +137,7 @@ void loop()
   Serial.print(sensorVoltage);
   Serial.println(" V");
   */
-  
-  WeatherSerial.listen();
+  //WeatherSerial.listen();
   getWeatherBuffer();
   /*
   Serial.print("Wind Direction: ");
@@ -179,4 +178,5 @@ void loop()
   root["pressure"] = BarPressure();
   root.printTo(Serial);
   Serial.println();
+  //delay(1000);
 }
