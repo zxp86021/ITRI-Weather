@@ -281,14 +281,108 @@ temperature_pixels.show()
         try:
             arduino_json_raw = arduino.readline()
             arduino_json = json.loads(arduino_json_raw)
-            # 4.49292074872709e-05x^2+0.0373750265x-0.3676207898
-            #uvIndex = (-1.706043956 * (arduino_json['UV'] ** 2)) + (118.3294205704 * arduino_json['UV']) + 59.3763736264
-            #print(uvIndex)
             uvIndex = ((arduino_json['UV_voltage'] / 5) * 3.3) / 0.1
-            print(uvIndex)
-            """
-            
-            """
+
+            if uvIndex < 3:
+                for i in range(PIXEL_COUNT // 6):
+                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                UV_pixels.show()
+            elif uvIndex < 6:
+                for i in range(PIXEL_COUNT // 6):
+                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    UV_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                UV_pixels.show()
+            elif uvIndex < 8:
+                for i in range(PIXEL_COUNT // 6):
+                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    UV_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                UV_pixels.show()
+            elif uvIndex < 11:
+                for i in range(PIXEL_COUNT // 6):
+                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    UV_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    UV_pixels.set_pixel_rgb(i, 255, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    UV_pixels.set_pixel_rgb(i, 0, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                UV_pixels.show()
+            else:
+                for i in range(PIXEL_COUNT // 6):
+                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                    UV_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                    UV_pixels.set_pixel_rgb(i, 255, 0, 0)
+
+                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                    UV_pixels.set_pixel_rgb(i, 160, 0, 240)
+
+                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                # Now make sure to call show() to update the pixels with the colors set above!
+                UV_pixels.show()
         except:
             print('Failed to get arduino reading')
 
