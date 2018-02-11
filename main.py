@@ -169,8 +169,9 @@ while True:
             pi_led.write(26, 0)
             pi_led.write(12, 0)
         elif 100 < d['apm25'] <= 150:
+            pi_led.set_PWM_dutycycle(17, 255)
             pi_led.set_PWM_dutycycle(22, 0)
-            pi_led.set_PWM_dutycycle(27, 50)
+            pi_led.set_PWM_dutycycle(27, 25)
             pi_led.write(5, 1)
             pi_led.write(6, 1)
             pi_led.write(13, 1)
@@ -190,7 +191,7 @@ while True:
         elif 200 < d['apm25'] <= 300:
             pi_led.set_PWM_dutycycle(17, 160)
             pi_led.set_PWM_dutycycle(22, 240)
-            pi_led.set_PWM_dutycycle(27, 32)
+            pi_led.set_PWM_dutycycle(27, 0)
             pi_led.write(5, 1)
             pi_led.write(6, 1)
             pi_led.write(13, 1)
@@ -198,9 +199,9 @@ while True:
             pi_led.write(26, 1)
             pi_led.write(12, 0)
         else:
-            pi_led.set_PWM_dutycycle(17, 139)
-            pi_led.set_PWM_dutycycle(22, 19)
-            pi_led.set_PWM_dutycycle(27, 69)
+            pi_led.set_PWM_dutycycle(17, 70)
+            pi_led.set_PWM_dutycycle(22, 10)
+            pi_led.set_PWM_dutycycle(27, 20)
             pi_led.write(5, 1)
             pi_led.write(6, 1)
             pi_led.write(13, 1)
