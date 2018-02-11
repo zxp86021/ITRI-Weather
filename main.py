@@ -284,7 +284,8 @@ temperature_pixels.show()
             # 4.49292074872709e-05x^2+0.0373750265x-0.3676207898
             #uvIndex = (-1.706043956 * (arduino_json['UV'] ** 2)) + (118.3294205704 * arduino_json['UV']) + 59.3763736264
             #print(uvIndex)
-            print(arduino_json_raw)
+            uvIndex = ((arduino_json['UV_voltage'] / 5) * 3.3) / 0.1
+            print(uvIndex)
             """
             
             """
