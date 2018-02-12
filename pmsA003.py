@@ -48,25 +48,11 @@ class sensor:
                     if self.vertify_data():
                         return self._PMdata()
 
-    """
-    def read_pm_line(_port):
-        rv = b''
-        while True:
-            ch1 = _port.read()
-            if ch1 == b'\x42':
-                ch2 = _port.read()
-                if ch2 == b'\x4d':
-                    rv += ch1 + ch2
-                    rv += _port.read(28)
-                    return rv
-    """
-
     def _PMdata(self):
         d = {}
         d['apm10'] = self.data[4] * 256 + self.data[5]
         d['apm25'] = self.data[6] * 256 + self.data[7]
         d['apm100'] = self.data[8] * 256 + self.data[9]
-        """
         d['pm10'] = self.data[10] * 256 + self.data[11],
         d['pm25'] = self.data[12] * 256 + self.data[13],
         d['pm100'] = self.data[14] * 256 + self.data[15],
@@ -76,5 +62,4 @@ class sensor:
         d['gt25um'] = self.data[22] * 256 + self.data[23],
         d['gt50um'] = self.data[24] * 256 + self.data[25],
         d['gt100um'] = self.data[26] * 256 + self.data[27]
-        """
         return d
