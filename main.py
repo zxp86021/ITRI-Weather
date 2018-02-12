@@ -137,118 +137,120 @@ while True:
 
             uvIndex = ((arduino_json['UV_voltage'] / 5) * 3.3) / 0.1
 
-            if uvIndex < 3:
-                UV_pixels.clear()
-
-                for i in range(PIXEL_COUNT // 6):
-                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
-
-                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
-                    UV_pixels.set_pixel_rgb(i, 26, 13, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
-                    UV_pixels.set_pixel_rgb(i, 26, 7, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
-                    UV_pixels.set_pixel_rgb(i, 26, 0, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
-                    UV_pixels.set_pixel_rgb(i, 16, 0, 24)
-
-                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
-                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
-                # Now make sure to call show() to update the pixels with the colors set above!
-                UV_pixels.show()
-            elif uvIndex < 6:
-                UV_pixels.clear()
-
-                for i in range(PIXEL_COUNT // 6):
-                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
-
-                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
-                    UV_pixels.set_pixel_rgb(i, 255, 128, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
-                    UV_pixels.set_pixel_rgb(i, 26, 7, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
-                    UV_pixels.set_pixel_rgb(i, 26, 0, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
-                    UV_pixels.set_pixel_rgb(i, 16, 0, 24)
-
-                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
-                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
-                # Now make sure to call show() to update the pixels with the colors set above!
-                UV_pixels.show()
-            elif uvIndex < 8:
-                UV_pixels.clear()
-
-                for i in range(PIXEL_COUNT // 6):
-                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
-
-                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
-                    UV_pixels.set_pixel_rgb(i, 255, 128, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
-                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
-                    UV_pixels.set_pixel_rgb(i, 26, 0, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
-                    UV_pixels.set_pixel_rgb(i, 16, 0, 24)
-
-                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
-                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
-                # Now make sure to call show() to update the pixels with the colors set above!
-                UV_pixels.show()
-            elif uvIndex < 11:
-                UV_pixels.clear()
-
-                for i in range(PIXEL_COUNT // 6):
-                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
-
-                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
-                    UV_pixels.set_pixel_rgb(i, 255, 128, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
-                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
-                    UV_pixels.set_pixel_rgb(i, 255, 0, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
-                    UV_pixels.set_pixel_rgb(i, 16, 0, 24)
-
-                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
-                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
-                # Now make sure to call show() to update the pixels with the colors set above!
-                UV_pixels.show()
-            else:
-                UV_pixels.clear()
-
-                for i in range(PIXEL_COUNT // 6):
-                    UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
-
-                for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
-                    UV_pixels.set_pixel_rgb(i, 255, 128, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
-                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
-                    UV_pixels.set_pixel_rgb(i, 255, 0, 0)
-
-                for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
-                    UV_pixels.set_pixel_rgb(i, 160, 0, 240)
-
-                for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
-                    UV_pixels.set_pixel_rgb(i, 255, 25, 0)
-                # Now make sure to call show() to update the pixels with the colors set above!
-                UV_pixels.show()
+            print('uvIndex: ' + repr(uvIndex))
 
             if humidity is not None and temperature is not None:
+                if uvIndex < 3:
+                    UV_pixels.clear()
+
+                    for i in range(PIXEL_COUNT // 6):
+                        UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                    for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                        UV_pixels.set_pixel_rgb(i, 26, 13, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                        UV_pixels.set_pixel_rgb(i, 26, 7, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                        UV_pixels.set_pixel_rgb(i, 26, 0, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                        UV_pixels.set_pixel_rgb(i, 16, 0, 24)
+
+                    for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                        UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                    # Now make sure to call show() to update the pixels with the colors set above!
+                    UV_pixels.show()
+                elif uvIndex < 6:
+                    UV_pixels.clear()
+
+                    for i in range(PIXEL_COUNT // 6):
+                        UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                    for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                        UV_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                        UV_pixels.set_pixel_rgb(i, 26, 7, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                        UV_pixels.set_pixel_rgb(i, 26, 0, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                        UV_pixels.set_pixel_rgb(i, 16, 0, 24)
+
+                    for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                        UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                    # Now make sure to call show() to update the pixels with the colors set above!
+                    UV_pixels.show()
+                elif uvIndex < 8:
+                    UV_pixels.clear()
+
+                    for i in range(PIXEL_COUNT // 6):
+                        UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                    for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                        UV_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                        UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                        UV_pixels.set_pixel_rgb(i, 26, 0, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                        UV_pixels.set_pixel_rgb(i, 16, 0, 24)
+
+                    for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                        UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                    # Now make sure to call show() to update the pixels with the colors set above!
+                    UV_pixels.show()
+                elif uvIndex < 11:
+                    UV_pixels.clear()
+
+                    for i in range(PIXEL_COUNT // 6):
+                        UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                    for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                        UV_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                        UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                        UV_pixels.set_pixel_rgb(i, 255, 0, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                        UV_pixels.set_pixel_rgb(i, 16, 0, 24)
+
+                    for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                        UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                    # Now make sure to call show() to update the pixels with the colors set above!
+                    UV_pixels.show()
+                else:
+                    UV_pixels.clear()
+
+                    for i in range(PIXEL_COUNT // 6):
+                        UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
+
+                    for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
+                        UV_pixels.set_pixel_rgb(i, 255, 128, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
+                        UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
+                        UV_pixels.set_pixel_rgb(i, 255, 0, 0)
+
+                    for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
+                        UV_pixels.set_pixel_rgb(i, 160, 0, 240)
+
+                    for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
+                        UV_pixels.set_pixel_rgb(i, 255, 25, 0)
+                    # Now make sure to call show() to update the pixels with the colors set above!
+                    UV_pixels.show()
+
                 ehPa = (humidity / 100) * 6.105 * math.exp((17.27 * temperature) / (237.7 + temperature))
                 body_temperature = 1.04 * temperature + 0.2 * ehPa - 0.65 * arduino_json['avg_wind_speed'] - 2.7
 
