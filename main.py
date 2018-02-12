@@ -48,47 +48,48 @@ dht = DHT22.sensor(pi, 4)
 # guarantee the timing of calls to read the sensor).
 # If this happens try again!
 while True:
-    dht.trigger()
-
-    time.sleep(0.2)
-
-    temperature = dht.temperature()
-
-    humidity = dht.humidity()
-
-    print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(humidity, temperature))
-
-    ehPa = (humidity / 100) * 6.105 * math.exp((17.27 * temperature) / (237.7 + temperature))
-
-    pm25_data = pm25.read_data()
-
-    print('PM2.5: ' + repr(pm25_data['apm25']))
-
-    led.pm25_show(pm25_data['apm25'])
-
     try:
-        arduino_json_raw = arduino.readline()
-        arduino_json = json.loads(arduino_json_raw)
-        print(arduino_json_raw)
+        dht.trigger()
 
-        uvIndex = ((arduino_json['UV_voltage'] / 5) * 3.3) / 0.1
+        time.sleep(0.2)
 
-        print('uvIndex: ' + repr(uvIndex))
+        temperature = dht.temperature()
 
-        led.uv_show(uvIndex)
+        humidity = dht.humidity()
 
-        body_temperature = 1.04 * temperature + 0.2 * ehPa - 0.65 * arduino_json['avg_wind_speed'] - 2.7
+        print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(humidity, temperature))
 
-        print('body_temperature: ' + repr(body_temperature))
+        ehPa = (humidity / 100) * 6.105 * math.exp((17.27 * temperature) / (237.7 + temperature))
 
-        led.body_temperature_show(body_temperature)
-    except:
-        print('Failed to get arduino reading')
+        pm25_data = pm25.read_data()
 
-    time.sleep(5)
+        print('PM2.5: ' + repr(pm25_data['apm25']))
 
-led.all_off()
-arduino.close()
-dht.cancel()
-pi.stop()
-sys.exit(1)
+        led.pm25_show(pm25_data['apm25'])
+
+        try:
+            arduino_json_raw = arduino.readline()
+            arduino_json = json.loads(arduino_json_raw)
+            print(arduino_json_raw)
+
+            uvIndex = ((arduino_json['UV_voltage'] / 5) * 3.3) / 0.1
+
+            print('uvIndex: ' + repr(uvIndex))
+
+            led.uv_show(uvIndex)
+
+            body_temperature = 1.04 * temperature + 0.2 * ehPa - 0.65 * arduino_json['avg_wind_speed'] - 2.7
+
+            print('body_temperature: ' + repr(body_temperature))
+
+            led.body_temperature_show(body_temperature)
+        except:
+            print('Failed to get arduino reading')
+
+        time.sleep(5)
+    except KeyboardInterrupt:
+        led.all_off()
+        arduino.close()
+        dht.cancel()
+        pi.stop()
+        sys.exit(1)
