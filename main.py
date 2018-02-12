@@ -139,7 +139,6 @@ while True:
 
             if uvIndex < 3:
                 UV_pixels.clear()
-                UV_pixels.show()
 
                 for i in range(PIXEL_COUNT // 6):
                     UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
@@ -162,7 +161,6 @@ while True:
                 UV_pixels.show()
             elif uvIndex < 6:
                 UV_pixels.clear()
-                UV_pixels.show()
 
                 for i in range(PIXEL_COUNT // 6):
                     UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
@@ -185,7 +183,6 @@ while True:
                 UV_pixels.show()
             elif uvIndex < 8:
                 UV_pixels.clear()
-                UV_pixels.show()
 
                 for i in range(PIXEL_COUNT // 6):
                     UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
@@ -208,7 +205,6 @@ while True:
                 UV_pixels.show()
             elif uvIndex < 11:
                 UV_pixels.clear()
-                UV_pixels.show()
 
                 for i in range(PIXEL_COUNT // 6):
                     UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
@@ -231,7 +227,6 @@ while True:
                 UV_pixels.show()
             else:
                 UV_pixels.clear()
-                UV_pixels.show()
 
                 for i in range(PIXEL_COUNT // 6):
                     UV_pixels.set_pixel_rgb(i, 0, 255, 0)  # Set the RGB color (0-255) of pixel i.
@@ -261,7 +256,6 @@ while True:
 
                 if body_temperature <= 10:
                     temperature_pixels.clear()
-                    temperature_pixels.show()
 
                     for i in range(PIXEL_COUNT // 6):
                         temperature_pixels.set_pixel_rgb(i, 48, 0, 72)  # Set the RGB color (0-255) of pixel i.
@@ -284,7 +278,6 @@ while True:
                     temperature_pixels.show()
                 elif 10 < body_temperature <= 20:
                     temperature_pixels.clear()
-                    temperature_pixels.show()
 
                     for i in range(PIXEL_COUNT // 6):
                         temperature_pixels.set_pixel_rgb(i, 48, 0, 72)  # Set the RGB color (0-255) of pixel i.
@@ -307,7 +300,6 @@ while True:
                     temperature_pixels.show()
                 elif 20 < body_temperature <= 27:
                     temperature_pixels.clear()
-                    temperature_pixels.show()
 
                     for i in range(PIXEL_COUNT // 6):
                         temperature_pixels.set_pixel_rgb(i, 48, 0, 72)  # Set the RGB color (0-255) of pixel i.
@@ -330,7 +322,6 @@ while True:
                     temperature_pixels.show()
                 elif 27 < body_temperature <= 30:
                     temperature_pixels.clear()
-                    temperature_pixels.show()
 
                     for i in range(PIXEL_COUNT // 6):
                         temperature_pixels.set_pixel_rgb(i, 48, 0, 72)  # Set the RGB color (0-255) of pixel i.
@@ -353,8 +344,7 @@ while True:
                     temperature_pixels.show()
                 else:
                     temperature_pixels.clear()
-                    temperature_pixels.show()
-                    
+
                     for i in range(PIXEL_COUNT // 6):
                         temperature_pixels.set_pixel_rgb(i, 160, 0, 240)  # Set the RGB color (0-255) of pixel i.
 
