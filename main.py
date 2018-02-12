@@ -169,13 +169,13 @@ while True:
                     UV_pixels.set_pixel_rgb(i, 255, 128, 0)
 
                 for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
-                    UV_pixels.set_pixel_rgb(i, 76, 7, 0)
+                    UV_pixels.set_pixel_rgb(i, 26, 7, 0)
 
                 for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
-                    UV_pixels.set_pixel_rgb(i, 76, 0, 0)
+                    UV_pixels.set_pixel_rgb(i, 26, 0, 0)
 
                 for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
-                    UV_pixels.set_pixel_rgb(i, 48, 0, 72)
+                    UV_pixels.set_pixel_rgb(i, 16, 0, 24)
 
                 for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
                     UV_pixels.set_pixel_rgb(i, 255, 25, 0)
@@ -194,10 +194,10 @@ while True:
                     UV_pixels.set_pixel_rgb(i, 255, 25, 0)
 
                 for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
-                    UV_pixels.set_pixel_rgb(i, 76, 0, 0)
+                    UV_pixels.set_pixel_rgb(i, 26, 0, 0)
 
                 for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
-                    UV_pixels.set_pixel_rgb(i, 48, 0, 72)
+                    UV_pixels.set_pixel_rgb(i, 16, 0, 24)
 
                 for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
                     UV_pixels.set_pixel_rgb(i, 255, 25, 0)
@@ -219,7 +219,7 @@ while True:
                     UV_pixels.set_pixel_rgb(i, 255, 0, 0)
 
                 for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
-                    UV_pixels.set_pixel_rgb(i, 48, 0, 72)
+                    UV_pixels.set_pixel_rgb(i, 16, 0, 24)
 
                 for i in range(PIXEL_COUNT // 6 * 5, PIXEL_COUNT):
                     UV_pixels.set_pixel_rgb(i, 255, 25, 0)
@@ -258,16 +258,16 @@ while True:
                     temperature_pixels.clear()
 
                     for i in range(PIXEL_COUNT // 6):
-                        temperature_pixels.set_pixel_rgb(i, 48, 0, 72)  # Set the RGB color (0-255) of pixel i.
+                        temperature_pixels.set_pixel_rgb(i, 16, 0, 24)  # Set the RGB color (0-255) of pixel i.
 
                     for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
-                        temperature_pixels.set_pixel_rgb(i, 76, 0, 0)
+                        temperature_pixels.set_pixel_rgb(i, 26, 0, 0)
 
                     for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
-                        temperature_pixels.set_pixel_rgb(i, 76, 38, 0)
+                        temperature_pixels.set_pixel_rgb(i, 26, 13, 0)
 
                     for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
-                        temperature_pixels.set_pixel_rgb(i, 0, 76, 0)
+                        temperature_pixels.set_pixel_rgb(i, 0, 26, 0)
 
                     for i in range(PIXEL_COUNT // 6 * 4, PIXEL_COUNT // 6 * 5):
                         temperature_pixels.set_pixel_rgb(i, 0, 0, 255)
@@ -280,13 +280,13 @@ while True:
                     temperature_pixels.clear()
 
                     for i in range(PIXEL_COUNT // 6):
-                        temperature_pixels.set_pixel_rgb(i, 48, 0, 72)  # Set the RGB color (0-255) of pixel i.
+                        temperature_pixels.set_pixel_rgb(i, 16, 0, 24)  # Set the RGB color (0-255) of pixel i.
 
                     for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
-                        temperature_pixels.set_pixel_rgb(i, 76, 0, 0)
+                        temperature_pixels.set_pixel_rgb(i, 26, 0, 0)
 
                     for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
-                        temperature_pixels.set_pixel_rgb(i, 76, 38, 0)
+                        temperature_pixels.set_pixel_rgb(i, 26, 13, 0)
 
                     for i in range(PIXEL_COUNT // 6 * 3, PIXEL_COUNT // 6 * 4):
                         temperature_pixels.set_pixel_rgb(i, 0, 255, 0)
@@ -302,10 +302,10 @@ while True:
                     temperature_pixels.clear()
 
                     for i in range(PIXEL_COUNT // 6):
-                        temperature_pixels.set_pixel_rgb(i, 48, 0, 72)  # Set the RGB color (0-255) of pixel i.
+                        temperature_pixels.set_pixel_rgb(i, 16, 0, 24)  # Set the RGB color (0-255) of pixel i.
 
                     for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
-                        temperature_pixels.set_pixel_rgb(i, 76, 0, 0)
+                        temperature_pixels.set_pixel_rgb(i, 26, 0, 0)
 
                     for i in range(PIXEL_COUNT // 6 * 2, PIXEL_COUNT // 6 * 3):
                         temperature_pixels.set_pixel_rgb(i, 255, 128, 0)
@@ -324,7 +324,7 @@ while True:
                     temperature_pixels.clear()
 
                     for i in range(PIXEL_COUNT // 6):
-                        temperature_pixels.set_pixel_rgb(i, 48, 0, 72)  # Set the RGB color (0-255) of pixel i.
+                        temperature_pixels.set_pixel_rgb(i, 16, 0, 24)  # Set the RGB color (0-255) of pixel i.
 
                     for i in range(PIXEL_COUNT // 6, PIXEL_COUNT // 6 * 2):
                         temperature_pixels.set_pixel_rgb(i, 255, 0, 0)
