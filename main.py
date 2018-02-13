@@ -74,11 +74,15 @@ while True:
             arduino_json = json.loads(arduino_json_raw)
             print(arduino_json_raw)
 
+            time.sleep(0.2)
+            
             uvIndex = ((arduino_json['UV_voltage'] / 5) * 3.3) / 0.1
 
             print('uvIndex: ' + repr(uvIndex))
 
             led.uv_show(uvIndex)
+
+            time.sleep(0.2)
 
             body_temperature = 1.04 * temperature + 0.2 * ehPa - 0.65 * arduino_json['avg_wind_speed'] - 2.7
 
