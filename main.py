@@ -28,6 +28,11 @@ GPIO 21 temperature_CLOCK
 GPIO 20 temperature_DOUT
 """
 
+
+def int16bit(b):
+    return (ord(b[0]) << 8) + ord(b[1])
+
+
 arduino = serial.Serial('/dev/ttyACM0', 9600)
 
 pi = pigpio.pi()
@@ -63,9 +68,9 @@ while True:
 
         pm25_data = pm25.read_data()
 
-        print('PM2.5: ' + repr(pm25_data['apm25']))
+        #print('PM2.5: ' + repr(pm25_data['apm25']))
 
-        led.pm25_show(pm25_data['apm25'])
+        #led.pm25_show(pm25_data['apm25'])
 
         try:
             arduino.reset_input_buffer()
