@@ -68,6 +68,8 @@ while True:
         led.pm25_show(pm25_data['apm25'])
 
         try:
+            arduino.reset_input_buffer()
+            time.sleep(0.2)
             arduino_json_raw = arduino.readline()
             arduino_json = json.loads(arduino_json_raw)
             print(arduino_json_raw)
