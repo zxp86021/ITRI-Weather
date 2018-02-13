@@ -67,7 +67,7 @@ class sensor:
                 if checksum != data[self.PMS_CHECKSUM]:
                     print("Incorrect check code: received : {:04x}, calculated : {:04x}".format(data[self.PMS_CHECKSUM],
                                                                                                 checksum))
-
+                """
                 # parsing sensor data
                 # 0-1: frame length
                 print("Frame length: {}".format(data[self.PMS_FRAME_LENGTH]))
@@ -116,7 +116,7 @@ class sensor:
 
                 # 28-29: checksum
                 print("Checksum: {}".format(data[self.PMS_CHECKSUM]))
-
+                """
                 d = {}
                 d['Frame length'] = data[self.PMS_FRAME_LENGTH]
                 d['pm1'] = data[self.PMS_PM1_0]

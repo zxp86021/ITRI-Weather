@@ -68,7 +68,7 @@ while True:
 
         pm25_data = pm25.read_data()
 
-        #print('PM2.5: ' + repr(pm25_data['apm25']))
+        print(pm25_data)
 
         #led.pm25_show(pm25_data['apm25'])
 
