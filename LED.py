@@ -166,8 +166,8 @@ class light:
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.UV_pixels.set_pixel_rgb(i, 255, 25, 0)
 
-            for i in range(self.PIXEL_COUNT):
-                print(self.UV_pixels.get_pixel_rgb(i))
+            #for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.UV_pixels.show()
         elif read_value < 6:
@@ -191,8 +191,8 @@ class light:
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.UV_pixels.set_pixel_rgb(i, 255, 25, 0)
 
-            for i in range(self.PIXEL_COUNT):
-                print(self.UV_pixels.get_pixel_rgb(i))
+            #for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.UV_pixels.show()
         elif read_value < 8:
@@ -216,8 +216,8 @@ class light:
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.UV_pixels.set_pixel_rgb(i, 255, 25, 0)
 
-            for i in range(self.PIXEL_COUNT):
-                print(self.UV_pixels.get_pixel_rgb(i))
+            #for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.UV_pixels.show()
         elif read_value < 11:
@@ -266,8 +266,8 @@ class light:
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.UV_pixels.set_pixel_rgb(i, 255, 25, 0)
 
-            for i in range(self.PIXEL_COUNT):
-                print(self.UV_pixels.get_pixel_rgb(i))
+            #for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.UV_pixels.show()
 
@@ -292,6 +292,9 @@ class light:
 
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+            # for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.temperature_pixels.show()
         elif 10 < read_value <= 20:
@@ -314,6 +317,9 @@ class light:
 
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+            # for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.temperature_pixels.show()
         elif 20 < read_value <= 27:
@@ -336,6 +342,9 @@ class light:
 
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+            # for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.temperature_pixels.show()
         elif 27 < read_value <= 30:
@@ -358,6 +367,9 @@ class light:
 
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+            # for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.temperature_pixels.show()
         else:
@@ -380,5 +392,8 @@ class light:
 
             for i in range(self.PIXEL_COUNT // 6 * 5, self.PIXEL_COUNT):
                 self.temperature_pixels.set_pixel_rgb(i, 255, 25, 0)
+
+            # for i in range(self.PIXEL_COUNT):
+            #    print(self.UV_pixels.get_pixel_rgb(i))
             # Now make sure to call show() to update the pixels with the colors set above!
             self.temperature_pixels.show()
