@@ -70,7 +70,7 @@ while True:
 
         print(pm25_data)
 
-        #led.pm25_show(pm25_data['apm25'])
+        led.pm25_show(pm25_data['pm2.5'])
 
         try:
             arduino.reset_input_buffer()
