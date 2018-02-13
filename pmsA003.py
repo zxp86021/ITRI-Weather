@@ -117,5 +117,13 @@ class sensor:
                 # 28-29: checksum
                 print("Checksum: {}".format(data[self.PMS_CHECKSUM]))
 
+                d = {}
+                d['Frame length'] = data[self.PMS_FRAME_LENGTH]
+                d['pm1'] = data[self.PMS_PM1_0]
+                d['pm2.5'] = data[self.PMS_PM2_5]
+                d['pm10'] = data[self.PMS_PM10_0]
+
                 readEnd = True
                 break
+
+        return d
