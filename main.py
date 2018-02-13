@@ -57,7 +57,7 @@ while True:
 
         humidity = dht.humidity()
 
-        print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(humidity, temperature))
+        print('Temp={0:0.1f}*  Humidity={1:0.1f}%'.format(temperature, humidity))
 
         ehPa = (humidity / 100) * 6.105 * math.exp((17.27 * temperature) / (237.7 + temperature))
 
