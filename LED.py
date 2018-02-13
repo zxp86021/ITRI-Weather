@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import Adafruit_WS2801
+import Adafruit_GPIO.SPI as SPI
 
 """
 GPIO 17 PM2.5 strip Red
@@ -38,6 +39,20 @@ class light:
         self.temperature_pixels = Adafruit_WS2801.WS2801Pixels(self.PIXEL_COUNT,
                                                                clk=self.temperature_CLOCK,
                                                                do=self.temperature_DOUT)
+
+        """
+        # Alternatively specify a hardware SPI connection on /dev/spidev0.0:
+        self.UV_SPI_PORT = 0
+        self.UV_SPI_DEVICE = 0
+        self.UV_pixels = Adafruit_WS2801.WS2801Pixels(self.PIXEL_COUNT,
+                                                      spi=SPI.SpiDev(self.UV_SPI_PORT, self.UV_SPI_DEVICE))
+
+        self.temperature_SPI_PORT = 0
+        self.temperature_SPI_DEVICE = 1
+        self.temperature_pixels = Adafruit_WS2801.WS2801Pixels(self.PIXEL_COUNT,
+                                                               spi=SPI.SpiDev(self.temperature_SPI_PORT,
+                                                                              self.temperature_SPI_DEVICE))
+        """
 
         # level 1 ~ level 6 pin number
         self.pm25_level = [5, 6, 13, 19, 26, 12]
