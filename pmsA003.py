@@ -26,7 +26,6 @@ class sensor:
         return True
 
     def read_data(self):
-        """
         while True:
             b = self.serial.read(1)
             if b == b'\x42':
@@ -35,8 +34,8 @@ class sensor:
                     self.data = bytearray(b'\x42' + data)
                     if self.vertify_data():
                         return self._PMdata()
-        """
 
+        """
         self.data = b''
         while True:
             ch1 = self.serial.read()
@@ -47,6 +46,7 @@ class sensor:
                     self.data += self.serial.read(28)
                     if self.vertify_data():
                         return self._PMdata()
+        """
 
     def _PMdata(self):
         d = {}
